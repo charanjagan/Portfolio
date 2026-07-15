@@ -7,7 +7,7 @@ export default function Banner() {
   const [failed, setFailed] = useState(false);
 
   return (
-    <div className="relative h-44 w-full overflow-hidden bg-gradient-to-br from-ink-800 via-ink-900 to-accent/20 sm:h-56">
+    <div className="relative h-72 w-full overflow-hidden bg-gradient-to-br from-ink-800 via-ink-900 to-accent/20 sm:h-96 lg:h-[28rem]">
       {!failed && (
         <img
           src={profile.bannerSrc}

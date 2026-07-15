@@ -26,19 +26,11 @@ export default function Hero() {
       />
 
       <div className="relative mx-auto max-w-5xl px-6 pb-24 pt-16 sm:pt-20">
-        <p className="animate-fade-up font-mono text-xs text-accent">
-          <span className="text-zinc-600">$</span> whoami
-        </p>
-
-        <h1 className="animate-fade-up mt-4 text-5xl font-semibold tracking-tight text-white sm:text-7xl [animation-delay:60ms]">
+        <h1 className="animate-fade-up text-5xl font-semibold tracking-tight text-white sm:text-7xl">
           {profile.name}
         </h1>
 
-        <p className="animate-fade-up mt-5 max-w-2xl text-balance text-lg leading-relaxed text-zinc-400 sm:text-xl [animation-delay:120ms]">
-          {profile.tagline}
-        </p>
-
-        <ul className="animate-fade-up mt-8 max-w-2xl space-y-2.5 [animation-delay:180ms]">
+        <ul className="animate-fade-up mt-8 max-w-2xl space-y-2.5 [animation-delay:60ms]">
           {profile.bio.map((line) => (
             <li
               key={line}
@@ -49,7 +41,7 @@ export default function Hero() {
           ))}
         </ul>
 
-        <div className="animate-fade-up mt-10 flex flex-wrap items-center gap-3 [animation-delay:240ms]">
+        <div className="animate-fade-up mt-10 flex flex-wrap items-center gap-3 [animation-delay:120ms]">
           <a
             href="#projects"
             className="rounded-full bg-white px-5 py-2.5 text-sm font-medium text-ink-950 transition-transform hover:-translate-y-0.5"
@@ -66,7 +58,7 @@ export default function Hero() {
           </a>
         </div>
 
-        <div className="animate-fade-up mt-6 flex flex-wrap items-center gap-3 [animation-delay:300ms]">
+        <div className="animate-fade-up mt-6 flex flex-wrap items-center gap-3 [animation-delay:180ms]">
           {profile.links.map((link) => {
             const Icon = link.icon ? ICONS[link.icon] : null;
             const external = !link.href.startsWith("mailto:");

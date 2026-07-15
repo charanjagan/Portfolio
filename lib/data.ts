@@ -83,6 +83,9 @@ export const skills: string[] = [
   "Python",
   "Power BI",
   "Microsoft Office Suite",
+  "Claude",
+  "Vibe Coding",
+  "AI Integrations",
   "Leadership",
   "Teamwork",
 ];
@@ -231,7 +234,7 @@ export const education: Study[] = [
     school: "College of Engineering, Guindy, Anna University",
     period: "10/2022 – 04/2026",
     location: "Chennai, Tamil Nadu",
-    result: "CGPA: 7.34/10",
+    result: "CGPA: 7.69/10 · 3.25 / 4 (verified through Scholaro)",
   },
   {
     degree: "Higher Secondary Certificate (HSC), CBSE",

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import { profile } from "@/lib/data";
 import "./globals.css";
 
 const sans = Inter({
@@ -14,11 +15,12 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
+const title = `${profile.name} — Portfolio`;
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://charanjagan.vercel.app"),
-  title: "Charan Jagan — Portfolio",
-  description:
-    "ECE undergrad @ CEG, Anna University — building at the intersection of AI, data, and full-stack products. Creator of PickMySeat.",
+  title,
+  description: `${profile.tagline}. Creator of PickMySeat.`,
   keywords: [
     "Charan Jagan",
     "portfolio",
@@ -29,19 +31,17 @@ export const metadata: Metadata = {
     "Next.js",
     "data analytics",
   ],
-  authors: [{ name: "Charan Jagan" }],
+  authors: [{ name: profile.name }],
   openGraph: {
-    title: "Charan Jagan — Portfolio",
-    description:
-      "ECE undergrad @ CEG, Anna University — building at the intersection of AI, data, and full-stack products.",
+    title,
+    description: profile.tagline,
     type: "website",
     locale: "en_IN",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Charan Jagan — Portfolio",
-    description:
-      "ECE undergrad @ CEG, Anna University — building at the intersection of AI, data, and full-stack products.",
+    title,
+    description: profile.tagline,
   },
 };
 
