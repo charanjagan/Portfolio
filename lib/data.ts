@@ -39,6 +39,13 @@ export type Role = {
   tech?: string[];
 };
 
+export type Responsibility = {
+  org: string;
+  role: string;
+  period?: string;
+  summary: string;
+};
+
 export type Study = {
   degree: string;
   school: string;
@@ -82,6 +89,16 @@ export const skills: string[] = [
 
 export const projects: Project[] = [
   {
+    title: "DB.Whisperer",
+    blurb: "Currently building",
+    quip: "yelling at your database in plain English",
+    description:
+      "A local-first app (Python + Ollama) that converts natural language questions into SQL queries and returns the results as clean, Power BI-esque visual reports instead of raw tables. Actively in development, with more features planned in the pipeline.",
+    tech: ["Python", "Ollama", "SQL"],
+    status: "In Progress",
+    featured: true,
+  },
+  {
     title: "PickMySeat",
     blurb: "Live product — pickmyseat.in",
     quip: "helping stressed 12th graders sleep at night",
@@ -110,7 +127,7 @@ export const projects: Project[] = [
     description:
       "Assistive vision system combining YOLO-based real-time object detection with OCR to read street signs and surroundings, converting detections to audio feedback for safer navigation. Frame-by-frame analysis for timely obstacle alerts. Focus: accessibility and real-world usability.",
     tech: ["YOLO", "OCR", "Computer Vision", "Python"],
-    status: "In progress",
+    status: "In Progress",
   },
   {
     title: "Wayfinder",
@@ -167,12 +184,44 @@ export const experience: Role[] = [
   {
     title: "Advanced Vehicle Architecture — Intern",
     org: "Mahindra Research Valley",
-    location: "Chennai",
+    location: "Chennai, Tamil Nadu",
     period: "06/2025 – 07/2025",
     bullets: [
-      "Built an IoT-driven autonomous vehicle prototype with LiDAR-based perception, ADAS features, and ROS-powered SLAM for navigation and obstacle avoidance.",
-      "Designed a dynamic decision-making system to adapt routes based on floor-level availability; integrated IoT communication and modular hardware for scalability.",
+      "Used ROS-powered SLAM with LiDAR-based perception to build an automated parking system prototype for next-gen electric vehicles, enabling the vehicle to autonomously detect, navigate to, and park in available spots without driver input.",
+      "Designed a dynamic decision-making system that adapts routing based on real-time floor-level slot availability in multi-level structures.",
+      "Explored extending the same LiDAR/SLAM navigation stack beyond parking — assisting users in wayfinding through complex urban structures like multi-level parking garages, malls, and campuses, where GPS is unreliable.",
+      "Integrated IoT communication and modular hardware design for scalability across different vehicle platforms and structure types.",
     ],
+  },
+];
+
+export const responsibilities: Responsibility[] = [
+  {
+    org: "The Guindy Times",
+    role: "Vice President",
+    period: "06/2025 – 04/2026",
+    summary:
+      "Leads editorial direction and team coordination for the college's student publication, overseeing content planning and contributor management.",
+  },
+  {
+    org: "CEG Cricket Team",
+    role: "Vice Captain / Wicket-Keeper",
+    period: "01/2023 – 12/2024",
+    summary:
+      "Co-led team strategy and on-field decisions as wicket-keeper, balancing competitive cricket with academics over two seasons.",
+  },
+  {
+    org: "Electronics and Communication Engineers Association",
+    role: "Joint Secretary",
+    period: "07/2023 – 04/2024",
+    summary:
+      "Helped organize department-level technical events and coordinated communication between students and faculty for the ECE association.",
+  },
+  {
+    org: "The Thulasidass Foundation",
+    role: "Volunteer",
+    summary:
+      "Contributed to community outreach initiatives run by the foundation.",
   },
 ];
 
@@ -180,15 +229,15 @@ export const education: Study[] = [
   {
     degree: "Bachelor of Engineering, Electronics and Communication Engineering",
     school: "College of Engineering, Guindy, Anna University",
-    period: "10/2022 – Present",
-    location: "Chennai",
+    period: "10/2022 – 04/2026",
+    location: "Chennai, Tamil Nadu",
     result: "CGPA: 7.34/10",
   },
   {
     degree: "Higher Secondary Certificate (HSC), CBSE",
     school: "DAV Higher Secondary School",
     period: "06/2020 – 07/2022",
-    location: "Chennai",
+    location: "Chennai, Tamil Nadu",
     result: "85%",
   },
 ];
@@ -197,5 +246,6 @@ export const navItems: Link[] = [
   { label: "Home", href: "#home" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
+  { label: "Roles", href: "#roles" },
   { label: "Education", href: "#education" },
 ];

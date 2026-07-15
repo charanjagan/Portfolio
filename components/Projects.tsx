@@ -1,6 +1,11 @@
 import { projects, type Project } from "@/lib/data";
 import Section from "./Section";
 
+const STATUS_STYLES: Record<string, string> = {
+  Live: "bg-emerald-400/10 text-emerald-300",
+  "In Progress": "bg-accent-warm/10 text-accent-warm",
+};
+
 function TechTag({ label }: { label: string }) {
   return (
     <span className="rounded border border-ink-600/70 bg-ink-800/60 px-2 py-0.5 font-mono text-[11px] text-zinc-400">
@@ -28,9 +33,7 @@ function Card({ project }: { project: Project }) {
         {project.status && (
           <span
             className={`rounded-full px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider ${
-              project.status === "Live"
-                ? "bg-emerald-400/10 text-emerald-300"
-                : "bg-ink-700/80 text-zinc-500"
+              STATUS_STYLES[project.status] ?? "bg-ink-700/80 text-zinc-500"
             }`}
           >
             {project.status}

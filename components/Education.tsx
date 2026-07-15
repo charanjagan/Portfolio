@@ -3,7 +3,7 @@ import Section from "./Section";
 
 export default function Education() {
   return (
-    <Section id="education" index="03" title="Education">
+    <Section id="education" index="04" title="Education">
       <ol className="relative border-l border-ink-700">
         {education.map((study) => (
           <li key={study.degree} className="relative pb-10 pl-8 last:pb-0">
