@@ -45,7 +45,12 @@ function Card({ project }: { project: Project }) {
 
       <p className="relative mt-1 font-mono text-xs text-accent">{project.blurb}</p>
 
-      <p className="relative mt-4 text-sm leading-relaxed text-zinc-400">
+      <p className="relative mt-3 font-mono text-xs text-accent-warm">
+        <span className="text-zinc-600">{"// "}</span>
+        {project.quip}
+      </p>
+
+      <p className="relative mt-3 text-sm leading-relaxed text-zinc-400">
         {project.description}
       </p>
 

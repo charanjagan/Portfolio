@@ -1,4 +1,5 @@
 import Nav from "@/components/Nav";
+import Banner from "@/components/Banner";
 import Hero from "@/components/Hero";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
@@ -11,7 +12,10 @@ export default function Home() {
     <>
       <Nav />
       <main>
-        <Hero />
+        <div id="home">
+          <Banner />
+          <Hero />
+        </div>
         <Skills />
         <Projects />
         <Experience />
