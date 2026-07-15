@@ -8,12 +8,12 @@ export default function Roles() {
         {responsibilities.map((item) => (
           <li
             key={item.org}
-            className="border-t border-ink-800 py-5 first:border-t-0 sm:[&:nth-child(2)]:border-t-0"
+            className="border-t border-paper-300 py-5 first:border-t-0 sm:[&:nth-child(2)]:border-t-0"
           >
             <div className="flex flex-wrap items-baseline gap-x-3">
-              <h3 className="text-sm font-semibold text-white">{item.role}</h3>
+              <h3 className="text-sm font-semibold text-zinc-900">{item.role}</h3>
               {item.period && (
-                <span className="ml-auto font-mono text-[11px] text-zinc-600">
+                <span className="ml-auto font-mono text-[11px] text-zinc-400">
                   {item.period}
                 </span>
               )}
@@ -21,7 +21,7 @@ export default function Roles() {
 
             <p className="mt-0.5 font-mono text-xs text-accent">{item.org}</p>
 
-            <p className="mt-2 text-[13px] leading-relaxed text-zinc-500">
+            <p className="mt-2 text-[13px] leading-relaxed text-zinc-600">
               {item.summary}
             </p>
           </li>

@@ -9,16 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: {
-          950: "#08090c",
-          900: "#0c0e13",
-          800: "#13161d",
-          700: "#1c2029",
-          600: "#2a2f3a",
+        paper: {
+          50: "#ffffff",
+          100: "#f7f8fa",
+          200: "#eef1f5",
+          300: "#e0e4ea",
+          400: "#c8ced8",
         },
+        // Both accents are darkened well past their dark-theme values so they
+        // clear 4.5:1 on white at the small sizes they're used at.
         accent: {
-          DEFAULT: "#7dd3fc",
-          warm: "#fbbf24",
+          DEFAULT: "#0369a1",
+          warm: "#b45309",
         },
       },
       fontFamily: {

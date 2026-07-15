@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { profile } from "@/lib/data";
 import "./globals.css";
@@ -43,6 +43,11 @@ export const metadata: Metadata = {
     title,
     description: profile.tagline,
   },
+};
+
+export const viewport: Viewport = {
+  colorScheme: "light",
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({

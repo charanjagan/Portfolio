@@ -38,14 +38,14 @@ export default function Nav() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-ink-700/70 bg-ink-950/80 backdrop-blur-xl"
+          ? "border-b border-paper-300 bg-paper-50/85 backdrop-blur-xl"
           : "border-b border-transparent"
       }`}
     >
       <nav className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
         <a
           href="#home"
-          className="font-mono text-sm tracking-tight text-white transition-colors hover:text-accent"
+          className="font-mono text-sm tracking-tight text-zinc-900 transition-colors hover:text-accent"
         >
           charan<span className="text-accent">.</span>jagan
         </a>
@@ -57,8 +57,8 @@ export default function Nav() {
                 href={item.href}
                 className={`rounded-full px-3.5 py-1.5 text-sm transition-colors ${
                   active === item.href
-                    ? "bg-ink-800 text-white"
-                    : "text-zinc-400 hover:text-white"
+                    ? "bg-paper-200 text-zinc-900"
+                    : "text-zinc-500 hover:text-zinc-900"
                 }`}
               >
                 {item.label}
@@ -72,7 +72,7 @@ export default function Nav() {
           onClick={() => setOpen((prev) => !prev)}
           aria-label="Toggle menu"
           aria-expanded={open}
-          className="flex h-9 w-9 items-center justify-center rounded-lg border border-ink-700 text-zinc-400 transition-colors hover:text-white md:hidden"
+          className="flex h-9 w-9 items-center justify-center rounded-lg border border-paper-300 text-zinc-500 transition-colors hover:text-zinc-900 md:hidden"
         >
           <span className="relative block h-3 w-4">
             <span
@@ -95,13 +95,13 @@ export default function Nav() {
       </nav>
 
       {open && (
-        <ul className="border-t border-ink-800 bg-ink-950/95 px-6 py-3 backdrop-blur-xl md:hidden">
+        <ul className="border-t border-paper-300 bg-paper-50/95 px-6 py-3 backdrop-blur-xl md:hidden">
           {navItems.map((item) => (
             <li key={item.href}>
               <a
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="block py-2.5 text-sm text-zinc-400 transition-colors hover:text-white"
+                className="block py-2.5 text-sm text-zinc-500 transition-colors hover:text-zinc-900"
               >
                 {item.label}
               </a>

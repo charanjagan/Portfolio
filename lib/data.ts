@@ -51,7 +51,6 @@ export type Study = {
   school: string;
   period: string;
   location: string;
-  result: string;
 };
 
 export const profile: Profile = {
@@ -234,14 +233,12 @@ export const education: Study[] = [
     school: "College of Engineering, Guindy, Anna University",
     period: "10/2022 – 04/2026",
     location: "Chennai, Tamil Nadu",
-    result: "CGPA: 7.69/10 · 3.25 / 4 (verified through Scholaro)",
   },
   {
     degree: "Higher Secondary Certificate (HSC), CBSE",
     school: "DAV Higher Secondary School",
     period: "06/2020 – 07/2022",
     location: "Chennai, Tamil Nadu",
-    result: "85%",
   },
 ];
 

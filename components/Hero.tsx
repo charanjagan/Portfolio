@@ -26,7 +26,7 @@ export default function Hero() {
       />
 
       <div className="relative mx-auto max-w-5xl px-6 pb-24 pt-16 sm:pt-20">
-        <h1 className="animate-fade-up text-5xl font-semibold tracking-tight text-white sm:text-7xl">
+        <h1 className="animate-fade-up text-5xl font-semibold tracking-tight text-zinc-900 sm:text-7xl">
           {profile.name}
         </h1>
 
@@ -34,7 +34,7 @@ export default function Hero() {
           {profile.bio.map((line) => (
             <li
               key={line}
-              className="relative pl-6 text-[15px] leading-relaxed text-zinc-400 before:absolute before:left-0 before:top-[0.6rem] before:h-1.5 before:w-1.5 before:rotate-45 before:bg-accent/70"
+              className="relative pl-6 text-[15px] leading-relaxed text-zinc-600 before:absolute before:left-0 before:top-[0.6rem] before:h-1.5 before:w-1.5 before:rotate-45 before:bg-accent/70"
             >
               {line}
             </li>
@@ -44,7 +44,7 @@ export default function Hero() {
         <div className="animate-fade-up mt-10 flex flex-wrap items-center gap-3 [animation-delay:120ms]">
           <a
             href="#projects"
-            className="rounded-full bg-white px-5 py-2.5 text-sm font-medium text-ink-950 transition-transform hover:-translate-y-0.5"
+            className="rounded-full bg-zinc-900 px-5 py-2.5 text-sm font-medium text-paper-50 transition-transform hover:-translate-y-0.5"
           >
             View Projects
           </a>
@@ -52,7 +52,7 @@ export default function Hero() {
             href={profile.resumeHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full border border-ink-600 px-5 py-2.5 text-sm font-medium text-zinc-200 transition-colors hover:border-zinc-500 hover:text-white"
+            className="rounded-full border border-paper-400 px-5 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:border-zinc-400 hover:text-zinc-900"
           >
             Resume ↗
           </a>
@@ -70,7 +70,7 @@ export default function Hero() {
                 target={external ? "_blank" : undefined}
                 rel={external ? "noopener noreferrer" : undefined}
                 aria-label={link.label}
-                className="inline-flex items-center gap-2 rounded-full border border-ink-600 bg-ink-800/60 px-4 py-2 text-sm font-medium text-zinc-200 transition-all hover:-translate-y-0.5 hover:border-accent/60 hover:text-accent"
+                className="inline-flex items-center gap-2 rounded-full border border-paper-300 bg-paper-100 px-4 py-2 text-sm font-medium text-zinc-700 transition-all hover:-translate-y-0.5 hover:border-accent/60 hover:text-accent"
               >
                 {Icon && <Icon aria-hidden className="h-4 w-4" />}
                 {link.label}
