@@ -4,14 +4,16 @@ import Section from "./Section";
 export default function Education() {
   return (
     <Section id="education" index="04" title="Education">
-      <ol className="relative border-l border-paper-300">
+      <ol className="space-y-4">
         {education.map((study) => (
-          <li key={study.degree} className="relative pb-10 pl-8 last:pb-0">
-            <span className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full border border-accent bg-paper-50" />
+          <li
+            key={study.degree}
+            className="ease-spring rounded-3xl bg-white/55 p-6 shadow-glass backdrop-blur-xl backdrop-saturate-150 transition-all duration-300 hover:-translate-y-1 hover:shadow-glass-hover"
+            style={{ border: "1px solid rgba(255, 255, 255, 0.45)" }}
+          >
+            <p className="font-mono text-xs text-ios-blue">{study.period}</p>
 
-            <p className="font-mono text-xs text-accent">{study.period}</p>
-
-            <h3 className="mt-2 text-base font-semibold text-zinc-900 sm:text-lg">
+            <h3 className="mt-2 text-base font-semibold tracking-tight text-zinc-900 sm:text-lg">
               {study.degree}
             </h3>
 

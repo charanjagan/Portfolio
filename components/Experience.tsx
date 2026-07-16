@@ -4,14 +4,16 @@ import Section from "./Section";
 export default function Experience() {
   return (
     <Section id="experience" index="02" title="Experience">
-      <ol className="relative border-l border-paper-300">
+      <ol className="space-y-5">
         {experience.map((role) => (
-          <li key={role.title} className="relative pb-12 pl-8 last:pb-0">
-            <span className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full border border-accent bg-paper-50" />
+          <li
+            key={role.title}
+            className="ease-spring relative rounded-3xl bg-white/55 p-6 shadow-glass backdrop-blur-xl backdrop-saturate-150 transition-all duration-300 hover:-translate-y-1 hover:shadow-glass-hover"
+            style={{ border: "1px solid rgba(255, 255, 255, 0.45)" }}
+          >
+            <p className="font-mono text-xs text-ios-blue">{role.period}</p>
 
-            <p className="font-mono text-xs text-accent">{role.period}</p>
-
-            <h3 className="mt-2 text-lg font-semibold text-zinc-900">
+            <h3 className="mt-2 text-lg font-semibold tracking-tight text-zinc-900">
               {role.title}
             </h3>
 
@@ -24,7 +26,7 @@ export default function Experience() {
               {role.bullets.map((bullet) => (
                 <li
                   key={bullet}
-                  className="relative pl-4 text-sm leading-relaxed text-zinc-600 before:absolute before:left-0 before:top-2 before:h-1 before:w-1 before:rounded-full before:bg-paper-400"
+                  className="relative pl-4 text-sm leading-relaxed text-zinc-600 before:absolute before:left-0 before:top-2 before:h-1 before:w-1 before:rounded-full before:bg-ios-indigo"
                 >
                   {bullet}
                 </li>
@@ -36,7 +38,7 @@ export default function Experience() {
                 {role.tech.map((tech) => (
                   <span
                     key={tech}
-                    className="rounded border border-paper-300 bg-paper-100 px-2 py-0.5 font-mono text-[11px] text-zinc-600"
+                    className="glass-subtle rounded-full px-2.5 py-1 font-mono text-[11px] text-zinc-600"
                   >
                     {tech}
                   </span>

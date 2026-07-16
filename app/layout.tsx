@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { profile } from "@/lib/data";
-import NetworkBackground from "@/components/NetworkBackground";
+import GradientBackground from "@/components/GradientBackground";
 import "./globals.css";
 
 const sans = Inter({
@@ -59,7 +59,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sans.variable} ${mono.variable}`}>
       <body>
-        <NetworkBackground />
+        <GradientBackground />
         <div className="relative z-10">{children}</div>
       </body>
     </html>

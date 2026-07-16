@@ -2,13 +2,13 @@ import { projects, type Project } from "@/lib/data";
 import Section from "./Section";
 
 const STATUS_STYLES: Record<string, string> = {
-  Live: "bg-emerald-600/10 text-emerald-700",
-  "In Progress": "bg-accent-warm/10 text-accent-warm",
+  Live: "bg-emerald-500/15 text-emerald-700",
+  "In Progress": "bg-ios-purple/15 text-ios-purple",
 };
 
 function TechTag({ label }: { label: string }) {
   return (
-    <span className="rounded border border-paper-300 bg-paper-100 px-2 py-0.5 font-mono text-[11px] text-zinc-600">
+    <span className="glass-subtle rounded-full px-2.5 py-1 font-mono text-[11px] text-zinc-600">
       {label}
     </span>
   );
@@ -17,23 +17,26 @@ function TechTag({ label }: { label: string }) {
 function Card({ project }: { project: Project }) {
   return (
     <article
-      className={`group relative flex flex-col rounded-xl border border-paper-300 bg-paper-50 p-6 shadow-sm transition-all hover:border-paper-400 hover:shadow-md ${
+      className={`ease-spring group relative flex flex-col rounded-3xl bg-white/55 p-6 shadow-glass backdrop-blur-xl backdrop-saturate-150 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-glass-hover ${
         project.featured ? "sm:col-span-2" : ""
       }`}
+      style={{ border: "1px solid rgba(255, 255, 255, 0.45)" }}
     >
       {project.featured && (
         <span
           aria-hidden
-          className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-br from-accent/[0.05] to-transparent"
+          className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-ios-blue/[0.06] to-ios-pink/[0.04]"
         />
       )}
 
       <div className="relative flex flex-wrap items-center gap-3">
-        <h3 className="text-lg font-semibold text-zinc-900">{project.title}</h3>
+        <h3 className="text-lg font-semibold tracking-tight text-zinc-900">
+          {project.title}
+        </h3>
         {project.status && (
           <span
-            className={`rounded-full px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider ${
-              STATUS_STYLES[project.status] ?? "bg-paper-200 text-zinc-500"
+            className={`rounded-full px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wider ${
+              STATUS_STYLES[project.status] ?? "bg-zinc-500/10 text-zinc-500"
             }`}
           >
             {project.status}
@@ -46,7 +49,7 @@ function Card({ project }: { project: Project }) {
         )}
       </div>
 
-      <p className="relative mt-1 font-mono text-xs text-accent">{project.blurb}</p>
+      <p className="relative mt-1 font-mono text-xs text-ios-blue">{project.blurb}</p>
 
       <p className="relative mt-3 font-mono text-xs text-accent-warm">
         <span className="text-zinc-400">{"// "}</span>
@@ -68,7 +71,7 @@ function Card({ project }: { project: Project }) {
           href={project.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="relative mt-5 w-fit font-mono text-xs text-zinc-700 underline-offset-4 transition-colors hover:text-accent hover:underline"
+          className="relative mt-5 w-fit font-mono text-xs text-zinc-700 underline-offset-4 transition-colors hover:text-ios-blue hover:underline"
         >
           {project.hrefLabel ?? project.href} ↗
         </a>
