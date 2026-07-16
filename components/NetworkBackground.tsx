@@ -2,24 +2,47 @@
 
 import { useEffect, useRef } from "react";
 
-type Node = {
-  x: number;
-  y: number;
-  vx: number;
-  vy: number;
-};
+type Point = { x: number; y: number };
+type Edge = { a: Point; corner: Point; b: Point };
 
-const BASE_LINE_COLOR = "147, 197, 253"; // #93C5FD
-const BASE_NODE_COLOR = "96, 165, 250"; // #60A5FA
-const LINK_DISTANCE = 140;
-const MOUSE_RADIUS = 180;
-const BASE_NODE_OPACITY = 0.35;
-const BASE_LINE_OPACITY = 0.15;
+const BASE_RGB = [209, 213, 219] as const; // #D1D5DB
+const HOVER_RGB = [37, 99, 235] as const; // #2563EB
+
+const CONNECT_DISTANCE = 260;
+const MAX_LINKS_PER_NODE = 2;
+const MOUSE_RADIUS = 190;
+const BASE_LINE_OPACITY = 0.16;
+const BASE_NODE_OPACITY = 0.4;
 
 function getNodeCount(width: number, height: number) {
   const area = width * height;
   const count = Math.round(area / 18000);
   return Math.max(60, Math.min(100, count));
+}
+
+function lerpColor(t: number) {
+  const r = Math.round(BASE_RGB[0] + (HOVER_RGB[0] - BASE_RGB[0]) * t);
+  const g = Math.round(BASE_RGB[1] + (HOVER_RGB[1] - BASE_RGB[1]) * t);
+  const b = Math.round(BASE_RGB[2] + (HOVER_RGB[2] - BASE_RGB[2]) * t);
+  return `${r}, ${g}, ${b}`;
+}
+
+function pointToSegmentDistance(
+  px: number,
+  py: number,
+  x1: number,
+  y1: number,
+  x2: number,
+  y2: number,
+) {
+  const dx = x2 - x1;
+  const dy = y2 - y1;
+  const lengthSq = dx * dx + dy * dy;
+  let t = lengthSq === 0 ? 0 : ((px - x1) * dx + (py - y1) * dy) / lengthSq;
+  t = Math.max(0, Math.min(1, t));
+  const cx = x1 + t * dx;
+  const cy = y1 + t * dy;
+  return Math.hypot(px - cx, py - cy);
 }
 
 export default function NetworkBackground() {
@@ -34,18 +57,53 @@ export default function NetworkBackground() {
     let width = window.innerWidth;
     let height = window.innerHeight;
     let dpr = Math.min(window.devicePixelRatio || 1, 2);
-    let nodes: Node[] = [];
+    let edges: Edge[] = [];
+    let nodePoints: Point[] = [];
     let animationId = 0;
     const mouse = { x: -9999, y: -9999 };
 
-    function createNodes() {
+    function buildTraces() {
       const count = getNodeCount(width, height);
-      nodes = Array.from({ length: count }, () => ({
+      const nodes: Point[] = Array.from({ length: count }, () => ({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.25,
-        vy: (Math.random() - 0.5) * 0.25,
       }));
+
+      const edgeKeys = new Set<string>();
+      const newEdges: Edge[] = [];
+
+      nodes.forEach((node, i) => {
+        const distances = nodes
+          .map((other, j) => ({ j, dist: Math.hypot(node.x - other.x, node.y - other.y) }))
+          .filter(({ j, dist }) => j !== i && dist <= CONNECT_DISTANCE)
+          .sort((x, y) => x.dist - y.dist)
+          .slice(0, MAX_LINKS_PER_NODE);
+
+        distances.forEach(({ j }) => {
+          const key = i < j ? `${i}-${j}` : `${j}-${i}`;
+          if (edgeKeys.has(key)) return;
+          edgeKeys.add(key);
+
+          const other = nodes[j];
+          const corner =
+            Math.random() < 0.5
+              ? { x: node.x, y: other.y }
+              : { x: other.x, y: node.y };
+
+          newEdges.push({ a: node, corner, b: other });
+        });
+      });
+
+      const pointMap = new Map<string, Point>();
+      newEdges.forEach(({ a, corner, b }) => {
+        [a, corner, b].forEach((p) => {
+          const key = `${p.x.toFixed(1)},${p.y.toFixed(1)}`;
+          if (!pointMap.has(key)) pointMap.set(key, p);
+        });
+      });
+
+      edges = newEdges;
+      nodePoints = Array.from(pointMap.values());
     }
 
     function resize() {
@@ -57,7 +115,7 @@ export default function NetworkBackground() {
       canvas!.style.width = `${width}px`;
       canvas!.style.height = `${height}px`;
       ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
-      createNodes();
+      buildTraces();
     }
 
     function handleMouseMove(e: MouseEvent) {
@@ -71,9 +129,7 @@ export default function NetworkBackground() {
     }
 
     function proximityBoost(x: number, y: number) {
-      const dx = x - mouse.x;
-      const dy = y - mouse.y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
+      const dist = Math.hypot(x - mouse.x, y - mouse.y);
       if (dist >= MOUSE_RADIUS) return 0;
       return 1 - dist / MOUSE_RADIUS;
     }
@@ -81,48 +137,39 @@ export default function NetworkBackground() {
     function tick() {
       ctx!.clearRect(0, 0, width, height);
 
-      for (const node of nodes) {
-        node.x += node.vx;
-        node.y += node.vy;
+      for (const { a, corner, b } of edges) {
+        const distA = pointToSegmentDistance(mouse.x, mouse.y, a.x, a.y, corner.x, corner.y);
+        const distB = pointToSegmentDistance(mouse.x, mouse.y, corner.x, corner.y, b.x, b.y);
 
-        if (node.x < 0 || node.x > width) node.vx *= -1;
-        if (node.y < 0 || node.y > height) node.vy *= -1;
-        node.x = Math.max(0, Math.min(width, node.x));
-        node.y = Math.max(0, Math.min(height, node.y));
+        const boostA = distA >= MOUSE_RADIUS ? 0 : 1 - distA / MOUSE_RADIUS;
+        const boostB = distB >= MOUSE_RADIUS ? 0 : 1 - distB / MOUSE_RADIUS;
+
+        const opacityA = BASE_LINE_OPACITY + boostA * 0.75;
+        const opacityB = BASE_LINE_OPACITY + boostB * 0.75;
+        const widthA = 0.75 + boostA * 2.4;
+        const widthB = 0.75 + boostB * 2.4;
+
+        ctx!.strokeStyle = `rgba(${lerpColor(boostA)}, ${opacityA})`;
+        ctx!.lineWidth = widthA;
+        ctx!.beginPath();
+        ctx!.moveTo(a.x, a.y);
+        ctx!.lineTo(corner.x, corner.y);
+        ctx!.stroke();
+
+        ctx!.strokeStyle = `rgba(${lerpColor(boostB)}, ${opacityB})`;
+        ctx!.lineWidth = widthB;
+        ctx!.beginPath();
+        ctx!.moveTo(corner.x, corner.y);
+        ctx!.lineTo(b.x, b.y);
+        ctx!.stroke();
       }
 
-      for (let i = 0; i < nodes.length; i++) {
-        const a = nodes[i];
-        for (let j = i + 1; j < nodes.length; j++) {
-          const b = nodes[j];
-          const dx = a.x - b.x;
-          const dy = a.y - b.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist >= LINK_DISTANCE) continue;
-
-          const midX = (a.x + b.x) / 2;
-          const midY = (a.y + b.y) / 2;
-          const boost = proximityBoost(midX, midY);
-          const falloff = 1 - dist / LINK_DISTANCE;
-
-          const opacity = BASE_LINE_OPACITY * falloff + boost * 0.55 * falloff;
-          const lineWidth = 0.6 + boost * 1.8;
-
-          ctx!.strokeStyle = `rgba(${BASE_LINE_COLOR}, ${opacity})`;
-          ctx!.lineWidth = lineWidth;
-          ctx!.beginPath();
-          ctx!.moveTo(a.x, a.y);
-          ctx!.lineTo(b.x, b.y);
-          ctx!.stroke();
-        }
-      }
-
-      for (const node of nodes) {
+      for (const node of nodePoints) {
         const boost = proximityBoost(node.x, node.y);
         const opacity = BASE_NODE_OPACITY + boost * 0.6;
-        const radius = 1.4 + boost * 2.2;
+        const radius = 1.3 + boost * 2.5;
 
-        ctx!.fillStyle = `rgba(${BASE_NODE_COLOR}, ${opacity})`;
+        ctx!.fillStyle = `rgba(${lerpColor(boost)}, ${opacity})`;
         ctx!.beginPath();
         ctx!.arc(node.x, node.y, radius, 0, Math.PI * 2);
         ctx!.fill();

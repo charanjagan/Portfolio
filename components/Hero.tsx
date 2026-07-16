@@ -26,6 +26,7 @@ export default function Hero() {
       />
 
       <div className="relative mx-auto max-w-5xl px-6 pb-24 pt-16 sm:pt-20">
+        <div className="rounded-2xl border border-[#E5E7EB] bg-[#FAFBFC] p-6 shadow-sm sm:p-8">
         <h1 className="animate-fade-up text-5xl font-semibold tracking-tight text-zinc-900 sm:text-7xl">
           {profile.name}
         </h1>
@@ -77,6 +78,7 @@ export default function Hero() {
               </a>
             );
           })}
+        </div>
         </div>
       </div>
     </section>
