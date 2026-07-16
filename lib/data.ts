@@ -69,7 +69,7 @@ export const profile: Profile = {
     { label: "Email", href: "mailto:charanjagan2004@gmail.com", icon: "mail" },
     {
       label: "LinkedIn",
-      href: "https://www.linkedin.com/in/charan-jagan",
+      href: "https://www.linkedin.com/in/charanjagan",
       icon: "linkedin",
     },
     { label: "GitHub", href: "https://github.com/charanjagan", icon: "github" },
