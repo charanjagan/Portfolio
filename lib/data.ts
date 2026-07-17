@@ -120,16 +120,17 @@ export const projects: Project[] = [
       "Automated weekly cab routing system for ~247 employees across a Chennai MNC. Handles gender- and seat-constrained allocation across 4-seater and flexible 6-seater vehicles. Production-ready as of July 2026 with 0 critical/high security findings. Roster-upload UI and drag-and-drop reassignment in progress.",
     tech: ["FastAPI", "SQL Server", "OSRM"],
     status: "Production · private repo",
+    featured: true,
   },
   {
     title: "Smart Vision for Visually Impaired People",
     blurb: "Undergraduate project",
     quip: "computer vision doing something that actually matters",
-    period: "06/2025 – Present",
+    period: "06/2025 – 12/2025",
     description:
       "Assistive vision system combining YOLO-based real-time object detection with OCR to read street signs and surroundings, converting detections to audio feedback for safer navigation. Frame-by-frame analysis for timely obstacle alerts. Focus: accessibility and real-world usability.",
     tech: ["YOLO", "OCR", "Computer Vision", "Python"],
-    status: "In Progress",
+    status: "Completed",
   },
   {
     title: "Wayfinder",
