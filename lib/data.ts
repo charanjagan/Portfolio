@@ -85,6 +85,8 @@ export const skills: string[] = [
   "Claude",
   "Vibe Coding",
   "AI Integrations",
+  "Machine Learning",
+  "Deep Learning",
   "Leadership",
   "Teamwork",
 ];
