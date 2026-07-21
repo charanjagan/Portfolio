@@ -60,7 +60,7 @@ export const profile: Profile = {
   bio: [
     "Incoming MS in Electronics & Communication Engineering @ Purdue University Northwest",
     "B.E. Electronics & Communication Engineering @ CEG, Anna University",
-    "Enjoys turning messy real-world problems — traffic, exam seats, indoor navigation — into shipped software",
+    "Loves taking messy, real-world issues—from traffic to indoor navigation—and turning them into software people can actually use.",
   ],
   email: "charanjagan2004@gmail.com",
   resumeHref: "/resume.pdf",
@@ -107,7 +107,7 @@ export const projects: Project[] = [
     blurb: "Live product — pickmyseat.in",
     quip: "helping stressed 12th graders sleep at night",
     description:
-      "AI-powered TNEA (Tamil Nadu Engineering Admissions) college seat predictor trained on 2021–2025 admissions data, covering 550+ colleges. Users enter their marks and get rank-band predictions with college/course admission probabilities. Built full auth + freemium tiers (free/registered/premium), Razorpay payments, and a counselling simulation feature. Solo-built and shipped end to end.",
+      "AI-powered TNEA (Tamil Nadu Engineering Admissions) college seat predictor trained on 2021–2025 admissions data, covering 550+ colleges. Users enter their marks and get rank-band predictions with college/course admission probabilities. Built full auth + freemium tiers (free/registered/premium), Razorpay payments, and a counselling simulation feature. Team-built and shipped end to end.",
     tech: ["Next.js", "Vercel", "Razorpay"],
     status: "Live",
     href: "https://pickmyseat.in",
@@ -128,7 +128,6 @@ export const projects: Project[] = [
     title: "Smart Vision for Visually Impaired People",
     blurb: "Undergraduate project",
     quip: "computer vision doing something that actually matters",
-    period: "06/2025 – 12/2025",
     description:
       "Assistive vision system combining YOLO-based real-time object detection with OCR to read street signs and surroundings, converting detections to audio feedback for safer navigation. Frame-by-frame analysis for timely obstacle alerts. Focus: accessibility and real-world usability.",
     tech: ["YOLO", "OCR", "Computer Vision", "Python"],
@@ -147,7 +146,6 @@ export const projects: Project[] = [
     title: "Security System using Raspberry Pi",
     blurb: "Undergraduate project",
     quip: "a $35 board guarding the fort",
-    period: "08/2024 – 12/2024",
     description:
       "Biometric security system on Raspberry Pi combining RFID tag identification with face detection for access control.",
     tech: ["Raspberry Pi", "RFID", "Face Detection"],
