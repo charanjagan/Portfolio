@@ -64,7 +64,7 @@ export const profile: Profile = {
   ],
   email: "charanjagan2004@gmail.com",
   resumeHref: "/resume.pdf",
-  bannerSrc: "/banner.jpg",
+  bannerSrc: "/banner.png",
   links: [
     { label: "Email", href: "mailto:charanjagan2004@gmail.com", icon: "mail" },
     {
