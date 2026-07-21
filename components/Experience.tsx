@@ -1,9 +1,10 @@
+import { Briefcase } from "lucide-react";
 import { experience } from "@/lib/data";
 import Section from "./Section";
 
 export default function Experience() {
   return (
-    <Section id="experience" index="02" title="Experience">
+    <Section id="experience" icon={<Briefcase size={16} />} title="Experience">
       <ol className="space-y-5">
         {experience.map((role) => (
           <li

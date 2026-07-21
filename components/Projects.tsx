@@ -1,3 +1,4 @@
+import { FolderKanban } from "lucide-react";
 import { projects, type Project } from "@/lib/data";
 import Section from "./Section";
 
@@ -82,7 +83,7 @@ function Card({ project }: { project: Project }) {
 
 export default function Projects() {
   return (
-    <Section id="projects" index="01" title="Projects">
+    <Section id="projects" icon={<FolderKanban size={16} />} title="Projects">
       <div className="grid gap-4 sm:grid-cols-2">
         {projects.map((project) => (
           <Card key={project.title} project={project} />

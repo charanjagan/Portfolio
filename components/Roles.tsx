@@ -1,9 +1,10 @@
+import { Users } from "lucide-react";
 import { responsibilities } from "@/lib/data";
 import Section from "./Section";
 
 export default function Roles() {
   return (
-    <Section id="roles" index="03" title="Roles & Responsibilities">
+    <Section id="roles" icon={<Users size={16} />} title="Roles & Responsibilities">
       <ul className="grid gap-4 sm:grid-cols-2">
         {responsibilities.map((item) => (
           <li

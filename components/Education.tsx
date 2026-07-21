@@ -1,9 +1,10 @@
+import { GraduationCap } from "lucide-react";
 import { education } from "@/lib/data";
 import Section from "./Section";
 
 export default function Education() {
   return (
-    <Section id="education" index="04" title="Education">
+    <Section id="education" icon={<GraduationCap size={16} />} title="Education">
       <ol className="space-y-4">
         {education.map((study) => (
           <li
