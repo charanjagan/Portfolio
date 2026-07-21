@@ -230,15 +230,15 @@ export const responsibilities: Responsibility[] = [
 
 export const education: Study[] = [
   {
+    degree: "Master of Science, Electronics and Communication Engineering",
+    school: "Purdue University Northwest",
+    period: "08/2026 – Present",
+    location: "Indiana, USA",
+  },
+  {
     degree: "Bachelor of Engineering, Electronics and Communication Engineering",
     school: "College of Engineering, Guindy, Anna University",
     period: "10/2022 – 04/2026",
-    location: "Chennai, Tamil Nadu",
-  },
-  {
-    degree: "Higher Secondary Certificate (HSC), CBSE",
-    school: "DAV Higher Secondary School",
-    period: "06/2020 – 07/2022",
     location: "Chennai, Tamil Nadu",
   },
 ];
