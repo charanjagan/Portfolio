@@ -14,7 +14,9 @@ export default function Footer() {
             <a
               key={link.label}
               href={link.href}
-              target={link.href.startsWith("mailto:") ? undefined : "_blank"}
+              target={
+                /^(mailto|tel):/.test(link.href) ? undefined : "_blank"
+              }
               rel="noopener noreferrer"
               className="text-zinc-600 underline-offset-4 transition-colors hover:text-ios-blue hover:underline"
             >

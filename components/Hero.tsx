@@ -1,4 +1,4 @@
-import { Mail } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { Github, Linkedin } from "./icons";
 import { profile, type IconKey } from "@/lib/data";
 import Reveal from "./Reveal";
@@ -10,6 +10,7 @@ type IconComponent = React.ComponentType<{
 
 const ICONS: Record<IconKey, IconComponent> = {
   mail: Mail,
+  phone: Phone,
   linkedin: Linkedin,
   github: Github,
 };
@@ -53,7 +54,7 @@ export default function Hero() {
         <div className="mt-6 flex flex-wrap items-center gap-3">
           {profile.links.map((link) => {
             const Icon = link.icon ? ICONS[link.icon] : null;
-            const external = !link.href.startsWith("mailto:");
+            const external = !/^(mailto|tel):/.test(link.href);
 
             return (
               <a

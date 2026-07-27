@@ -1,4 +1,4 @@
-export type IconKey = "mail" | "linkedin" | "github";
+export type IconKey = "mail" | "phone" | "linkedin" | "github";
 
 export type Link = {
   label: string;
@@ -67,6 +67,7 @@ export const profile: Profile = {
   bannerSrc: "/banner.png",
   links: [
     { label: "Email", href: "mailto:charanjagan2004@gmail.com", icon: "mail" },
+    { label: "Phone", href: "tel:+12194083214", icon: "phone" },
     {
       label: "LinkedIn",
       href: "https://www.linkedin.com/in/charanjagan",
