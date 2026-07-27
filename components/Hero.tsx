@@ -51,38 +51,42 @@ export default function Hero() {
           </a>
         </div>
 
-        <div className="mt-6 flex flex-wrap items-center gap-3">
-          {profile.links.map((link) => {
-            const Icon = link.icon ? ICONS[link.icon] : null;
-            const isStatic = /^(mailto|tel):/.test(link.href);
-
-            if (isStatic) {
+        <div className="mt-6 flex flex-wrap items-center gap-4">
+          {profile.links
+            .filter((link) => /^(mailto|tel):/.test(link.href))
+            .map((link) => {
+              const Icon = link.icon ? ICONS[link.icon] : null;
               return (
                 <span
                   key={link.label}
-                  aria-label={link.label}
-                  title={link.label}
-                  className="glass flex h-11 w-11 items-center justify-center rounded-full text-zinc-600 shadow-glass"
+                  className="flex items-center gap-2 text-sm text-zinc-600"
                 >
-                  {Icon && <Icon aria-hidden className="h-5 w-5" />}
+                  {Icon && <Icon aria-hidden className="h-4 w-4" />}
+                  {link.label}
                 </span>
               );
-            }
+            })}
+        </div>
 
-            return (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={link.label}
-                title={link.label}
-                className="ease-spring glass flex h-11 w-11 items-center justify-center rounded-full text-zinc-600 shadow-glass transition-all duration-300 hover:-translate-y-0.5 hover:text-ios-blue hover:shadow-glass-hover"
-              >
-                {Icon && <Icon aria-hidden className="h-5 w-5" />}
-              </a>
-            );
-          })}
+        <div className="mt-4 flex flex-wrap items-center gap-3">
+          {profile.links
+            .filter((link) => !/^(mailto|tel):/.test(link.href))
+            .map((link) => {
+              const Icon = link.icon ? ICONS[link.icon] : null;
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.label}
+                  title={link.label}
+                  className="ease-spring glass flex h-11 w-11 items-center justify-center rounded-full text-zinc-600 shadow-glass transition-all duration-300 hover:-translate-y-0.5 hover:text-ios-blue hover:shadow-glass-hover"
+                >
+                  {Icon && <Icon aria-hidden className="h-5 w-5" />}
+                </a>
+              );
+            })}
         </div>
       </Reveal>
     </section>
