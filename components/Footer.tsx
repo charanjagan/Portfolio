@@ -10,19 +10,29 @@ export default function Footer() {
         </p>
 
         <div className="flex flex-wrap gap-x-5 gap-y-2 font-mono text-xs">
-          {profile.links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target={
-                /^(mailto|tel):/.test(link.href) ? undefined : "_blank"
-              }
-              rel="noopener noreferrer"
-              className="text-zinc-600 underline-offset-4 transition-colors hover:text-ios-blue hover:underline"
-            >
-              {link.label}
-            </a>
-          ))}
+          {profile.links.map((link) => {
+            const isStatic = /^(mailto|tel):/.test(link.href);
+
+            if (isStatic) {
+              return (
+                <span key={link.label} className="text-zinc-600">
+                  {link.label}
+                </span>
+              );
+            }
+
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-zinc-600 underline-offset-4 transition-colors hover:text-ios-blue hover:underline"
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </div>
       </div>
     </footer>

@@ -54,14 +54,27 @@ export default function Hero() {
         <div className="mt-6 flex flex-wrap items-center gap-3">
           {profile.links.map((link) => {
             const Icon = link.icon ? ICONS[link.icon] : null;
-            const external = !/^(mailto|tel):/.test(link.href);
+            const isStatic = /^(mailto|tel):/.test(link.href);
+
+            if (isStatic) {
+              return (
+                <span
+                  key={link.label}
+                  aria-label={link.label}
+                  title={link.label}
+                  className="glass flex h-11 w-11 items-center justify-center rounded-full text-zinc-600 shadow-glass"
+                >
+                  {Icon && <Icon aria-hidden className="h-5 w-5" />}
+                </span>
+              );
+            }
 
             return (
               <a
                 key={link.label}
                 href={link.href}
-                target={external ? "_blank" : undefined}
-                rel={external ? "noopener noreferrer" : undefined}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={link.label}
                 title={link.label}
                 className="ease-spring glass flex h-11 w-11 items-center justify-center rounded-full text-zinc-600 shadow-glass transition-all duration-300 hover:-translate-y-0.5 hover:text-ios-blue hover:shadow-glass-hover"

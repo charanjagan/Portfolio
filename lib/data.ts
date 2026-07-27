@@ -66,8 +66,16 @@ export const profile: Profile = {
   resumeHref: "/resume.pdf",
   bannerSrc: "/banner.png",
   links: [
-    { label: "Email", href: "mailto:charanjagan2004@gmail.com", icon: "mail" },
-    { label: "Phone", href: "tel:+12194083214", icon: "phone" },
+    {
+      label: "charanjagan2004@gmail.com",
+      href: "mailto:charanjagan2004@gmail.com",
+      icon: "mail",
+    },
+    {
+      label: "+1 (219) 408-3214",
+      href: "tel:+12194083214",
+      icon: "phone",
+    },
     {
       label: "LinkedIn",
       href: "https://www.linkedin.com/in/charanjagan",
