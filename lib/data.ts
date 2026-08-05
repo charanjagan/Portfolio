@@ -172,6 +172,24 @@ export const projects: Project[] = [
 
 export const experience: Role[] = [
   {
+    title: "Business Systems Automations — Intern",
+    org: "NAF India",
+    location: "Chennai, Tamil Nadu",
+    period: "06/2026 – 07/2026",
+    bullets: [
+      "Designed and developed an automated multi-constraint employee routing and logistics application to optimize shift scheduling.",
+      "Built AI-driven internal tools and digital assets, including an office wayfinder and informative media, to streamline team workflows.",
+      "Delivered technical business operations solutions leveraging AI to automate manual processes and improve overall efficiency.",
+    ],
+    tech: [
+      "Route Optimization",
+      "Shift Scheduling",
+      "AI Automation",
+      "Internal Tooling",
+      "Business Operations",
+    ],
+  },
+  {
     title: "Data Analytics and AI Integration — Intern",
     org: "WhiteBlue Cloud Services",
     location: "Chennai, Tamil Nadu",
