@@ -58,6 +58,7 @@ export const profile: Profile = {
   tagline:
     "ECE undergrad @ CEG, Anna University — building at the intersection of AI, data, and full-stack products",
   bio: [
+    "U.S. Citizen",
     "Incoming MS in Electronics & Communication Engineering @ Purdue University Northwest",
     "B.E. Electronics & Communication Engineering @ CEG, Anna University",
     "Loves taking messy, real-world issues—from traffic to indoor navigation—and turning them into software people can actually use.",
