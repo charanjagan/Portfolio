@@ -4,7 +4,7 @@ import Section from "./Section";
 
 export default function Roles() {
   return (
-    <Section id="roles" icon={<Users size={16} />} title="Roles & Responsibilities">
+    <Section id="roles" icon={<Users size={20} />} title="Roles & Responsibilities">
       <ul className="grid gap-4 sm:grid-cols-2">
         {responsibilities.map((item) => (
           <li

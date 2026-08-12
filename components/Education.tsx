@@ -4,7 +4,7 @@ import Section from "./Section";
 
 export default function Education() {
   return (
-    <Section id="education" icon={<GraduationCap size={16} />} title="Education">
+    <Section id="education" icon={<GraduationCap size={20} />} title="Education">
       <ol className="space-y-4">
         {education.map((study) => (
           <li

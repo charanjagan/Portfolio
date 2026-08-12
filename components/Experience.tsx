@@ -4,7 +4,7 @@ import Section from "./Section";
 
 export default function Experience() {
   return (
-    <Section id="experience" icon={<Briefcase size={16} />} title="Experience">
+    <Section id="experience" icon={<Briefcase size={20} />} title="Experience">
       <ol className="space-y-5">
         {experience.map((role) => (
           <li
