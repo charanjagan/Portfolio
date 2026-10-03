@@ -9,11 +9,18 @@ export type Link = {
 export type Profile = {
   name: string;
   tagline: string;
+  role: string;
+  about: string[];
   bio: string[];
   email: string;
   links: Link[];
   resumeHref: string;
   bannerSrc: string;
+};
+
+export type SkillGroup = {
+  label: string;
+  items: string[];
 };
 
 export type Project = {
@@ -56,10 +63,16 @@ export type Study = {
 export const profile: Profile = {
   name: "Charan Jagan",
   tagline:
-    "ECE undergrad @ CEG, Anna University — building at the intersection of AI, data, and full-stack products",
+    "MS ECE @ Purdue University. Building AI-powered data, automation and full-stack products",
+  role: "Building AI-powered data & automation products.",
+  about: [
+    "I'm an Electrical and Computer Engineering grad student at Purdue, working where AI, data, and software meet.",
+    "I've built Power BI and Microsoft Fabric pipelines, shipped automation tools used by real teams, and helped build PickMySeat, an AI seat predictor used by TNEA aspirants.",
+    "I like taking messy, real-world problems and turning them into products people actually use.",
+  ],
   bio: [
     "U.S. Citizen",
-    "Incoming MS in Electronics & Communication Engineering @ Purdue University",
+    "MS in Electrical and Computer Engineering @ Purdue University",
     "B.E. Electronics & Communication Engineering @ CEG, Anna University",
     "Loves taking messy, real-world issues—from traffic to indoor navigation—and turning them into software people can actually use.",
   ],
@@ -86,19 +99,30 @@ export const profile: Profile = {
   ],
 };
 
-export const skills: string[] = [
-  "MATLAB",
-  "Xilinx Vivado",
-  "Python",
-  "Power BI",
-  "Microsoft Office Suite",
-  "Claude",
-  "Vibe Coding",
-  "AI Integrations",
-  "Machine Learning",
-  "Deep Learning",
-  "Leadership",
-  "Teamwork",
+export const skills: SkillGroup[] = [
+  { label: "Languages", items: ["Python", "SQL", "TypeScript", "MATLAB"] },
+  {
+    label: "Data & BI",
+    items: [
+      "Power BI",
+      "DAX",
+      "Microsoft Fabric",
+      "SQL Server",
+      "Microsoft Office Suite",
+    ],
+  },
+  {
+    label: "AI",
+    items: [
+      "Machine Learning",
+      "Deep Learning",
+      "AI Integrations",
+      "Claude",
+      "Vibe Coding",
+    ],
+  },
+  { label: "Embedded/ECE", items: ["Xilinx Vivado", "ROS", "Raspberry Pi"] },
+  { label: "Web", items: ["Next.js", "FastAPI"] },
 ];
 
 export const projects: Project[] = [
@@ -161,7 +185,7 @@ export const projects: Project[] = [
     tech: ["Raspberry Pi", "RFID", "Face Detection"],
   },
   {
-    title: "weatherrweb",
+    title: "WeatherWeb",
     blurb: "Weather web app",
     quip: "checking if it'll rain, but make it TypeScript",
     description:
@@ -218,11 +242,12 @@ export const experience: Role[] = [
     location: "Chennai, Tamil Nadu",
     period: "06/2025 – 07/2025",
     bullets: [
-      "Used ROS-powered SLAM with LiDAR-based perception to build an automated parking system prototype for next-gen electric vehicles, enabling the vehicle to autonomously detect, navigate to, and park in available spots without driver input.",
+      "Built an IoT-driven autonomous vehicle prototype with LiDAR-based perception, ADAS features, and ROS-powered SLAM for intelligent navigation and obstacle avoidance — e.g. an automated parking system that detects, navigates to, and parks in available spots without driver input.",
       "Designed a dynamic decision-making system that adapts routing based on real-time floor-level slot availability in multi-level structures.",
       "Explored extending the same LiDAR/SLAM navigation stack beyond parking — assisting users in wayfinding through complex urban structures like multi-level parking garages, malls, and campuses, where GPS is unreliable.",
       "Integrated IoT communication and modular hardware design for scalability across different vehicle platforms and structure types.",
     ],
+    tech: ["ROS", "SLAM", "LiDAR", "ADAS", "IoT"],
   },
 ];
 
@@ -258,8 +283,8 @@ export const responsibilities: Responsibility[] = [
 
 export const education: Study[] = [
   {
-    degree: "Master of Science, Electronics and Communication Engineering",
-    school: "Purdue University Northwest",
+    degree: "Master of Science, Electrical and Computer Engineering",
+    school: "Purdue University",
     period: "08/2026 – Present",
     location: "Indiana, USA",
   },
@@ -273,6 +298,7 @@ export const education: Study[] = [
 
 export const navItems: Link[] = [
   { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
   { label: "Roles", href: "#roles" },

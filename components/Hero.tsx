@@ -22,6 +22,9 @@ export default function Hero() {
         <h1 className="text-5xl font-bold tracking-tight text-zinc-900 sm:text-7xl">
           {profile.name}
         </h1>
+        <p className="mt-3 text-lg font-medium tracking-tight text-zinc-500 sm:text-xl">
+          {profile.role}
+        </p>
 
         <ul className="mt-8 max-w-2xl space-y-2.5">
           {profile.bio.map((line) => (
@@ -49,6 +52,13 @@ export default function Hero() {
           >
             Resume ↗
           </a>
+          <span className="inline-flex items-center gap-2 rounded-full bg-emerald-500/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-wider text-emerald-700">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+            </span>
+            Open to Summer 2027 internships
+          </span>
         </div>
 
         <div className="mt-6 flex flex-wrap items-center gap-4">
