@@ -41,8 +41,6 @@ export type Project = {
   repo?: string;
   /** Shows "Private repo — demo on request" instead of a GitHub link. */
   privateRepo?: boolean;
-  /** Screenshot under /public/projects/. Placeholders are .svg until replaced. */
-  image: { src: string; alt: string };
   period?: string;
   featured?: boolean;
 };
@@ -147,10 +145,6 @@ export const projects: Project[] = [
     tech: ["Python", "Ollama", "SQL"],
     status: "In Progress",
     repo: "https://github.com/charanjagan/DB.Whisperer",
-    image: {
-      src: "/projects/db-whisperer.svg",
-      alt: "DB.Whisperer turning a plain-English question into a SQL query and a chart report",
-    },
     featured: true,
   },
   {
@@ -166,10 +160,6 @@ export const projects: Project[] = [
     href: "https://pickmyseat.in",
     hrefLabel: "pickmyseat.in",
     privateRepo: true,
-    image: {
-      src: "/projects/pickmyseat.svg",
-      alt: "PickMySeat results page showing predicted rank band and college admission probabilities",
-    },
     featured: true,
   },
   {
@@ -183,10 +173,6 @@ export const projects: Project[] = [
     tech: ["FastAPI", "SQL Server", "OSRM"],
     status: "Production",
     privateRepo: true,
-    image: {
-      src: "/projects/cabrouting.svg",
-      alt: "CabRouting dashboard with weekly cab assignments plotted on a map",
-    },
     featured: true,
   },
   {
@@ -199,10 +185,6 @@ export const projects: Project[] = [
       "Assistive vision system combining YOLO-based real-time object detection with OCR to read street signs and surroundings, converting detections to audio feedback for safer navigation. Frame-by-frame analysis for timely obstacle alerts. Focus: accessibility and real-world usability.",
     tech: ["YOLO", "OCR", "Computer Vision", "Python"],
     status: "Completed",
-    image: {
-      src: "/projects/smart-vision.svg",
-      alt: "Smart Vision detecting objects and reading a street sign with bounding boxes",
-    },
   },
   {
     title: "Wayfinder",
@@ -213,10 +195,6 @@ export const projects: Project[] = [
       "Internal wayfinding app for indoor navigation — designed for spaces like offices, malls, or campuses where users need turn-by-turn guidance without GPS.",
     tech: ["TypeScript"],
     privateRepo: true,
-    image: {
-      src: "/projects/wayfinder.svg",
-      alt: "Wayfinder showing a turn-by-turn route across an indoor floor plan",
-    },
   },
   {
     title: "Security System using Raspberry Pi",
@@ -226,10 +204,6 @@ export const projects: Project[] = [
     description:
       "Biometric security system on Raspberry Pi combining RFID tag identification with face detection for access control.",
     tech: ["Raspberry Pi", "RFID", "Face Detection"],
-    image: {
-      src: "/projects/security-system.svg",
-      alt: "Raspberry Pi security prototype with an RFID reader and camera module",
-    },
   },
   {
     title: "WeatherWeb",
@@ -240,10 +214,6 @@ export const projects: Project[] = [
       "A weather web app — clean UI for checking current conditions and forecasts.",
     tech: ["TypeScript"],
     repo: "https://github.com/charanjagan/weatherrweb",
-    image: {
-      src: "/projects/weatherweb.svg",
-      alt: "WeatherWeb showing current conditions and a multi-day forecast",
-    },
   },
 ];
 

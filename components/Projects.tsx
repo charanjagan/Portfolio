@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { FolderKanban, Lock, TrendingUp } from "lucide-react";
 import { Github } from "./icons";
 import { profile, projects, type Project } from "@/lib/data";
@@ -85,25 +84,6 @@ function Card({ project }: { project: Project }) {
           className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-ios-blue/[0.06] to-ios-pink/[0.04]"
         />
       )}
-
-      <div
-        className={`relative mb-5 overflow-hidden rounded-2xl bg-white/40 ${
-          project.featured ? "aspect-[16/9] sm:aspect-[21/9]" : "aspect-[16/9]"
-        }`}
-        style={{ border: "1px solid rgba(255, 255, 255, 0.45)" }}
-      >
-        <Image
-          src={project.image.src}
-          alt={project.image.alt}
-          fill
-          sizes={
-            project.featured
-              ? "(min-width: 1024px) 912px, 100vw"
-              : "(min-width: 1024px) 448px, (min-width: 640px) 50vw, 100vw"
-          }
-          className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-        />
-      </div>
 
       <div className="relative flex flex-wrap items-center gap-3">
         <h3 className="text-lg font-semibold tracking-tight text-zinc-900">
