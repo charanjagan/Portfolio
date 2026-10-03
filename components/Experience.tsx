@@ -12,7 +12,7 @@ export default function Experience() {
             className="ease-spring relative rounded-3xl bg-white/55 p-6 shadow-glass backdrop-blur-xl backdrop-saturate-150 transition-all duration-300 hover:-translate-y-1 hover:shadow-glass-hover"
             style={{ border: "1px solid rgba(255, 255, 255, 0.45)" }}
           >
-            <p className="font-mono text-xs text-ios-blue">{role.period}</p>
+            <p className="font-mono text-xs text-accent">{role.period}</p>
 
             <h3 className="mt-2 text-lg font-semibold tracking-tight text-zinc-900">
               {role.title}
@@ -20,7 +20,7 @@ export default function Experience() {
 
             <p className="mt-0.5 text-sm text-zinc-600">
               {role.org}
-              <span className="text-zinc-400"> · {role.location}</span>
+              <span className="text-zinc-500"> · {role.location}</span>
             </p>
 
             <ul className="mt-4 space-y-2">

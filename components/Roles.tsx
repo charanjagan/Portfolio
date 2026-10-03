@@ -17,13 +17,13 @@ export default function Roles() {
                 {item.role}
               </h3>
               {item.period && (
-                <span className="ml-auto font-mono text-[11px] text-zinc-400">
+                <span className="ml-auto font-mono text-[11px] text-zinc-500">
                   {item.period}
                 </span>
               )}
             </div>
 
-            <p className="mt-0.5 font-mono text-xs text-ios-blue">{item.org}</p>
+            <p className="mt-0.5 font-mono text-xs text-accent">{item.org}</p>
 
             <p className="mt-2 text-[13px] leading-relaxed text-zinc-600">
               {item.summary}

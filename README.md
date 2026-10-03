@@ -17,7 +17,7 @@ All content lives in [`lib/data.ts`](lib/data.ts) as typed objects — `profile`
 
 ## Resume
 
-Drop your PDF at `public/resume.pdf`. The hero "Resume" button links to `/resume.pdf`.
+Drop your PDF at `public/Charan_Jagan_Resume.pdf`. The hero "Resume" button links to `/Charan_Jagan_Resume.pdf`.
 
 ## Deploy
 

@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { education, profile } from "@/lib/data";
 import { siteDescription, siteTitle, siteUrl } from "@/lib/site";
 import GradientBackground from "@/components/GradientBackground";
@@ -90,6 +92,13 @@ export default function RootLayout({
         />
         <GradientBackground />
         <div className="relative z-10">{children}</div>
+        {/* The /_vercel/* script endpoints only exist on Vercel deployments. */}
+        {process.env.VERCEL && (
+          <>
+            <Analytics />
+            <SpeedInsights />
+          </>
+        )}
       </body>
     </html>
   );

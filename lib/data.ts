@@ -28,11 +28,21 @@ export type Project = {
   blurb: string;
   /** Casual one-liner shown above the description. */
   quip: string;
+  /** Plain one-line description shown under the quip. */
+  summary: string;
+  /** Headline numbers, rendered as a single line. */
+  impact?: string;
   description: string;
   tech: string[];
   status?: string;
+  /** Live site. */
   href?: string;
   hrefLabel?: string;
+  repo?: string;
+  /** Shows "Private repo — demo on request" instead of a GitHub link. */
+  privateRepo?: boolean;
+  /** Screenshot under /public/projects/. Placeholders are .svg until replaced. */
+  image: { src: string; alt: string };
   period?: string;
   featured?: boolean;
 };
@@ -77,7 +87,7 @@ export const profile: Profile = {
     "Loves taking messy, real-world issues—from traffic to indoor navigation—and turning them into software people can actually use.",
   ],
   email: "charanjagan2004@gmail.com",
-  resumeHref: "/resume.pdf",
+  resumeHref: "/Charan_Jagan_Resume.pdf",
   bannerSrc: "/banner.png",
   links: [
     {
@@ -130,68 +140,110 @@ export const projects: Project[] = [
     title: "DB.Whisperer",
     blurb: "Currently building",
     quip: "yelling at your database in plain English",
+    summary: "Ask a database questions in plain English and get visual reports back.",
+    impact: "Local-first · Python + Ollama · NL → SQL → visual reports",
     description:
       "A local-first app (Python + Ollama) that converts natural language questions into SQL queries and returns the results as clean, Power BI-esque visual reports instead of raw tables. Actively in development, with more features planned in the pipeline.",
     tech: ["Python", "Ollama", "SQL"],
     status: "In Progress",
+    repo: "https://github.com/charanjagan/DB.Whisperer",
+    image: {
+      src: "/projects/db-whisperer.svg",
+      alt: "DB.Whisperer turning a plain-English question into a SQL query and a chart report",
+    },
     featured: true,
   },
   {
     title: "PickMySeat",
     blurb: "Live product — pickmyseat.in",
     quip: "helping stressed 12th graders sleep at night",
+    summary: "AI college seat predictor for Tamil Nadu engineering admissions.",
+    impact: "550+ colleges · 2021–2025 admissions data · live at pickmyseat.in",
     description:
       "AI-powered TNEA (Tamil Nadu Engineering Admissions) college seat predictor trained on 2021–2025 admissions data, covering 550+ colleges. Users enter their marks and get rank-band predictions with college/course admission probabilities. Built full auth + freemium tiers (free/registered/premium), Razorpay payments, and a counselling simulation feature. Team-built and shipped end to end.",
     tech: ["Next.js", "Vercel", "Razorpay"],
     status: "Live",
     href: "https://pickmyseat.in",
     hrefLabel: "pickmyseat.in",
+    privateRepo: true,
+    image: {
+      src: "/projects/pickmyseat.svg",
+      alt: "PickMySeat results page showing predicted rank band and college admission probabilities",
+    },
     featured: true,
   },
   {
     title: "CabRouting",
     blurb: "Automated weekly cab routing for ~247 employees",
     quip: "247 employees, 0 cab-related meltdowns",
+    summary: "Automated weekly cab routing for a Chennai MNC.",
+    impact: "~247 employees routed weekly · 0 critical/high security findings",
     description:
       "Automated weekly cab routing system for ~247 employees across a Chennai MNC. Handles gender- and seat-constrained allocation across 4-seater and flexible 6-seater vehicles. Production-ready as of July 2026 with 0 critical/high security findings. Roster-upload UI and drag-and-drop reassignment in progress.",
     tech: ["FastAPI", "SQL Server", "OSRM"],
-    status: "Production · private repo",
+    status: "Production",
+    privateRepo: true,
+    image: {
+      src: "/projects/cabrouting.svg",
+      alt: "CabRouting dashboard with weekly cab assignments plotted on a map",
+    },
     featured: true,
   },
   {
     title: "Smart Vision for Visually Impaired People",
     blurb: "Undergraduate project",
     quip: "computer vision doing something that actually matters",
+    summary: "Assistive vision system that reads the surroundings aloud.",
+    impact: "YOLO + OCR · real-time audio feedback",
     description:
       "Assistive vision system combining YOLO-based real-time object detection with OCR to read street signs and surroundings, converting detections to audio feedback for safer navigation. Frame-by-frame analysis for timely obstacle alerts. Focus: accessibility and real-world usability.",
     tech: ["YOLO", "OCR", "Computer Vision", "Python"],
     status: "Completed",
+    image: {
+      src: "/projects/smart-vision.svg",
+      alt: "Smart Vision detecting objects and reading a street sign with bounding boxes",
+    },
   },
   {
     title: "Wayfinder",
     blurb: "Indoor turn-by-turn navigation, no GPS",
     quip: "because getting lost in a mall isn't a personality trait",
+    summary: "Indoor turn-by-turn navigation without GPS.",
     description:
       "Internal wayfinding app for indoor navigation — designed for spaces like offices, malls, or campuses where users need turn-by-turn guidance without GPS.",
     tech: ["TypeScript"],
-    status: "Private repo",
+    privateRepo: true,
+    image: {
+      src: "/projects/wayfinder.svg",
+      alt: "Wayfinder showing a turn-by-turn route across an indoor floor plan",
+    },
   },
   {
     title: "Security System using Raspberry Pi",
     blurb: "Undergraduate project",
     quip: "a $35 board guarding the fort",
+    summary: "RFID and face-detection access control on a Raspberry Pi.",
     description:
       "Biometric security system on Raspberry Pi combining RFID tag identification with face detection for access control.",
     tech: ["Raspberry Pi", "RFID", "Face Detection"],
+    image: {
+      src: "/projects/security-system.svg",
+      alt: "Raspberry Pi security prototype with an RFID reader and camera module",
+    },
   },
   {
     title: "WeatherWeb",
     blurb: "Weather web app",
     quip: "checking if it'll rain, but make it TypeScript",
+    summary: "Current conditions and forecasts in a clean web UI.",
     description:
       "A weather web app — clean UI for checking current conditions and forecasts.",
     tech: ["TypeScript"],
-    status: "Public repo",
+    repo: "https://github.com/charanjagan/weatherrweb",
+    image: {
+      src: "/projects/weatherweb.svg",
+      alt: "WeatherWeb showing current conditions and a multi-day forecast",
+    },
   },
 ];
 

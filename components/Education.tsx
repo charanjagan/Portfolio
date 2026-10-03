@@ -12,7 +12,7 @@ export default function Education() {
             className="ease-spring rounded-3xl bg-white/55 p-6 shadow-glass backdrop-blur-xl backdrop-saturate-150 transition-all duration-300 hover:-translate-y-1 hover:shadow-glass-hover"
             style={{ border: "1px solid rgba(255, 255, 255, 0.45)" }}
           >
-            <p className="font-mono text-xs text-ios-blue">{study.period}</p>
+            <p className="font-mono text-xs text-accent">{study.period}</p>
 
             <h3 className="mt-2 text-base font-semibold tracking-tight text-zinc-900 sm:text-lg">
               {study.degree}
@@ -20,7 +20,7 @@ export default function Education() {
 
             <p className="mt-0.5 text-sm text-zinc-600">
               {study.school}
-              <span className="text-zinc-400"> · {study.location}</span>
+              <span className="text-zinc-500"> · {study.location}</span>
             </p>
           </li>
         ))}

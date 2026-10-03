@@ -27,7 +27,7 @@ export default function Footer() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-600 underline-offset-4 transition-colors hover:text-ios-blue hover:underline"
+                className="text-zinc-600 underline-offset-4 transition-colors hover:text-accent hover:underline"
               >
                 {link.label}
               </a>
